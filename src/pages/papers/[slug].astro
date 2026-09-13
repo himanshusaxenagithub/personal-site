@@ -24,7 +24,10 @@ const links = [
 
 <BaseLayout title={paper.data.title} description={paper.data.abstract}>
   <article class="prose">
-    <p class="page-kicker">{paper.data.venue} · {paper.data.year}</p>
+    <p class="page-kicker">
+      B.Tech-era publication · Production and Industrial Engineering · {paper.data.year}
+    </p>
+    <p class="meta">{paper.data.venue}</p>
     <h1>{paper.data.title}</h1>
     <p class="meta">{formatAuthors(paper.data.authors)}</p>
     {

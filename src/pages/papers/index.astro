@@ -7,15 +7,21 @@ const papers = await getPapers();
 ---
 
 <BaseLayout
-  title="Papers"
-  description="Peer-reviewed and conference publications."
+  title="Earlier publications"
+  description="B.Tech-era Production and Industrial Engineering publications from Delhi Technological University (2014)."
 >
-  <p class="page-kicker">Research</p>
-  <h1>Papers</h1>
+  <p class="page-kicker">Archive</p>
+  <h1>Earlier publications</h1>
   <p class="lede">
-    Earlier publications on bearing condition monitoring and energy harvesting.
+    These papers are from undergraduate research in Production and Industrial
+    Engineering at Delhi Technological University, around 2014. They are earlier
+    work, distinct from current work in security compliance, private cloud, and
+    applied AI.
   </p>
-  <div class="grid section">
-    {papers.map((paper) => <PaperCard paper={paper} headingLevel="h2" />)}
-  </div>
+  <section class="section" aria-labelledby="btech-papers-heading">
+    <h2 id="btech-papers-heading">Production and Industrial Engineering (B.Tech, 2014)</h2>
+    <div class="grid">
+      {papers.map((paper) => <PaperCard paper={paper} headingLevel="h3" />)}
+    </div>
+  </section>
 </BaseLayout>
