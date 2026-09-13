@@ -2,7 +2,7 @@
 
 Static [Astro](https://astro.build) portfolio for **Himanshu Saxena**: projects, papers, blog, and writing. Built as HTML/CSS in `dist/` and meant for [Cloudflare Pages](https://developers.cloudflare.com/pages/).
 
-Live site: [https://www.hsaxena.com](https://www.hsaxena.com).
+Live site: [https://hsaxena.com](https://hsaxena.com).
 
 ## Edit content
 
