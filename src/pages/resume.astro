@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../config";
+import { certifications, education, roles, skillGroups, teaching } from "../data/resume";
+---
+
+<BaseLayout
+  title="Resume"
+  description={`Experience, education, and skills for ${site.name}.`}
+>
+  <article class="resume">
+    <p class="page-kicker">Resume</p>
+    <h1>{site.name}</h1>
+    <p class="lede">{site.tagline}</p>
+    <p class="meta">{site.location}</p>
+
+    <section class="section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+      {
+        roles.map((role) => (
+          <article class="resume-role">
+            <header>
+              <h3>{role.title}</h3>
+              <p class="meta">
+                {role.org} · {role.location}
+              </p>
+              <p class="meta">
+                <time>{role.dates}</time>
+              </p>
+            </header>
+            <ul>
+              {role.highlights.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="section" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <ul class="resume-list">
+        {
+          education.map((item) => (
+            <li>
+              <strong>{item.credential}</strong>
+              <span class="meta">
+                {" "}
+                — {item.school} — {item.dates}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="meta">Teaching assistant: {teaching.join("; ")}.</p>
+    </section>
+
+    <section class="section" aria-labelledby="certs-heading">
+      <h2 id="certs-heading">Certifications</h2>
+      <ul class="resume-list">
+        {certifications.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      {
+        skillGroups.map((group) => (
+          <div class="skill-group">
+            <p class="meta">{group.label}</p>
+            <ul class="tags">
+              {group.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+  </article>
+</BaseLayout>

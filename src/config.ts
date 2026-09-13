@@ -24,6 +24,7 @@ export const site = {
 export const socials = {
   github: "https://github.com/himanshusaxenagithub",
   linkedin: "https://www.linkedin.com/in/himanshusaxena92",
+  scholar: "https://scholar.google.com/citations?user=jidhZI0AAAAJ&hl=en",
   email: `mailto:${site.email}`,
 } as const;
 
@@ -32,6 +33,7 @@ export type SocialKey = keyof typeof socials;
 export const socialLabels: Record<SocialKey, string> = {
   github: "GitHub",
   linkedin: "LinkedIn",
+  scholar: "Google Scholar",
   email: "Email",
 };
 
@@ -41,5 +43,6 @@ export const nav = [
   { href: "/papers", label: "Papers" },
   { href: "/blog", label: "Blog" },
   { href: "/writing", label: "Writing" },
+  { href: "/resume", label: "Resume" },
   { href: "/about", label: "About" },
 ] as const;
