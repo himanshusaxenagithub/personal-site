@@ -18,13 +18,20 @@ const { project } = Astro.props;
   </ul>
   <p class="links">
     <a href={`/projects/${project.id}/`}>Details</a>
-    <a href={project.data.github} rel="noopener noreferrer">GitHub</a>
     {
       project.data.demo && (
         <a href={project.data.demo} rel="noopener noreferrer">
-          Live demo
+          {project.data.demoLabel ?? "Site"}
         </a>
       )
+    }
+    <a href={project.data.github} rel="noopener noreferrer">GitHub</a>
+    {
+      project.data.links.map((link) => (
+        <a href={link.href} rel="noopener noreferrer">
+          {link.label}
+        </a>
+      ))
     }
   </p>
 </article>

@@ -13,7 +13,8 @@ const projects = await getProjects();
   <p class="page-kicker">Work</p>
   <h1>Projects</h1>
   <p class="lede">
-    Personal open-source work, starting with STIG automation tooling.
+    Personal open-source work, starting with STIG Checker — tooling that
+    explains Department of Defense security checklists in plain English.
   </p>
   <div class="grid grid-2 section">
     {projects.map((project) => <ProjectCard project={project} />)}

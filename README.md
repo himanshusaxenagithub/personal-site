@@ -20,8 +20,8 @@ Content collections are defined in [`src/content.config.ts`](src/content.config.
 
 - **Blog:** Markdown or MDX. Slug = file name. Set `draft: true` to hide a post from the index and RSS.
 - **Papers:** `pdf` can be a local path (`/papers/your-file.pdf`) or a remote URL. Add `doi`, `arxiv`, `scholar`, and/or `url` as needed.
-- **Projects:** require a `github` URL; `demo` is optional.
-- **Articles:** set `externalUrl` for an outbound card, or omit it to publish on-site at `/writing/[slug]/`.
+- **Projects:** require a `github` URL; `demo` (public site) and extra `links` are optional.
+- **Articles:** set `externalUrl` for an outbound card, or omit it to publish on-site at `/writing/[slug]/`. Optional `series` and `seriesOrder` keep a set (for example the STIG essays) together on the Writing index.
 
 ## Local development
 
@@ -85,13 +85,13 @@ On the first run, Wrangler asks for a project name (this repo’s default is `pe
 | Path | Purpose |
 | --- | --- |
 | `/` | Bio, featured projects, recent posts, writing, links to resume and earlier papers |
-| `/projects` | Project cards (GitHub + optional demo) |
+| `/projects` | Project cards (site, GitHub, and optional extra links) |
 | `/projects/[slug]` | Project detail |
 | `/papers` | Earlier B.Tech-era publications |
 | `/papers/[slug]` | Paper abstract and links |
 | `/blog` | Blog index |
 | `/blog/[slug]` | Markdown post |
-| `/writing` | External and on-site articles |
+| `/writing` | STIG essays (on-site) plus external articles |
 | `/writing/[slug]` | On-site article |
 | `/resume` | Experience, education, certifications, skills |
 | `/about` | Longer bio and social links |

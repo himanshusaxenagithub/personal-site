@@ -9,4 +9,4 @@ tags: ["STIG", "security", "open source"]
 
 A STIG ships as XCCDF. The useful output is a severity-ranked set of remediations in Markdown, JSON, or CSV, plus a plain-English explanation of each rule. The same project can check a machine against a STIG under a human approval gate so a scan does not become an unattended change.
 
-The repository is public. I also wrote a longer walkthrough of packaging the XCCDF-to-Excel path as a reusable AI skill on [HackerNoon](https://hackernoon.com/building-a-reusable-ai-skill-for-stig-to-excel-conversion).
+The repository is public. A plain-English site for the tool is at [stig.hsaxena.com](https://stig.hsaxena.com). Longer essays are on this site under [Writing](/writing/). I also wrote a longer walkthrough of packaging the XCCDF-to-Excel path as a reusable AI skill on [HackerNoon](https://hackernoon.com/building-a-reusable-ai-skill-for-stig-to-excel-conversion).
