@@ -26,12 +26,6 @@ export async function getPapers(): Promise<Paper[]> {
   return papers.sort((a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title));
 }
 
-export async function getFeaturedPapers(): Promise<Paper[]> {
-  const papers = await getPapers();
-  const featured = papers.filter((paper) => paper.data.featured);
-  return featured.length > 0 ? featured : papers.slice(0, 2);
-}
-
 export async function getArticles(): Promise<Article[]> {
   const articles = await getCollection("articles");
   return articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());

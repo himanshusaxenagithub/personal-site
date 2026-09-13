@@ -1,20 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import PaperCard from "../components/PaperCard.astro";
 import PostCard from "../components/PostCard.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import { site, socials, socialLabels } from "../config";
 import {
   getArticles,
-  getFeaturedPapers,
   getFeaturedProjects,
   getPublishedPosts,
 } from "../lib/content";
 
-const [projects, papers, posts, articles] = await Promise.all([
+const [projects, posts, articles] = await Promise.all([
   getFeaturedProjects(),
-  getFeaturedPapers(),
   getPublishedPosts(),
   getArticles(),
 ]);
@@ -60,16 +57,6 @@ const [projects, papers, posts, articles] = await Promise.all([
       </section>
     )
   }
-
-  <section class="section" aria-labelledby="papers-heading">
-    <div class="section-head">
-      <h2 id="papers-heading">Featured papers</h2>
-      <a href="/papers">All papers</a>
-    </div>
-    <div class="grid">
-      {papers.map((paper) => <PaperCard paper={paper} />)}
-    </div>
-  </section>
 
   <section class="section" aria-labelledby="writing-heading">
     <div class="section-head">
