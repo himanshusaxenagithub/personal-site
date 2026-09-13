@@ -9,12 +9,15 @@ const { project } = Astro.props;
 ---
 
 <article class="card">
-  <h3>{project.data.title}</h3>
+  <h3>
+    <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+  </h3>
   <p class="muted">{project.data.description}</p>
   <ul class="tags">
     {project.data.tags.map((tag) => <li>{tag}</li>)}
   </ul>
   <p class="links">
+    <a href={`/projects/${project.id}/`}>Details</a>
     <a href={project.data.github} rel="noopener noreferrer">GitHub</a>
     {
       project.data.demo && (
