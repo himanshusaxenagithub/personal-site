@@ -35,7 +35,7 @@ export const roles: Role[] = [
     dates: "July 2019 – July 2023",
     highlights: [
       "Developed the STIG enforcement implementation for VxRail Manager.",
-      "Infrastructure automation: Python modules and Ansible playbooks and guides for Day-1 and Day-2 VxRail operations; contributor to the public dell/ansible-vxrail collection.",
+      "Infrastructure automation: Python modules and Ansible playbooks and guides for Day-1 and Day-2 VxRail operations; contributor to the public [Dell Ansible VxRail](https://github.com/dell/ansible-vxrail) collection.",
       "API quality, data analytics and reporting, and triage with VMware and support organizations.",
       "Dell Technologies Inspire Game Changer 1 Award (October 2021) for the first Ansible playbook shipped with VxRail.",
     ],
@@ -84,6 +84,14 @@ export const certifications = [
   "Dell GenAI Foundations (July 2024)",
   "Dell Secure Development Blue Belt",
 ];
+
+/** Render a small markdown link subset in resume bullets. */
+export function formatHighlight(text: string): string {
+  return text.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+    '<a href="$2" rel="noopener noreferrer">$1</a>',
+  );
+}
 
 export const skillGroups = [
   {

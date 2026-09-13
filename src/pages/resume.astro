@@ -1,7 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../config";
-import { certifications, education, roles, skillGroups, teaching } from "../data/resume";
+import {
+  certifications,
+  education,
+  formatHighlight,
+  roles,
+  skillGroups,
+  teaching,
+} from "../data/resume";
 ---
 
 <BaseLayout
@@ -30,7 +37,7 @@ import { certifications, education, roles, skillGroups, teaching } from "../data
             </header>
             <ul>
               {role.highlights.map((item) => (
-                <li>{item}</li>
+                <li set:html={formatHighlight(item)} />
               ))}
             </ul>
           </article>
