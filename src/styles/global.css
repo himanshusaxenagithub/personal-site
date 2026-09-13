@@ -336,6 +336,10 @@ main {
   padding-left: 1.2rem;
 }
 
+.prose .tags {
+  padding-left: 0;
+}
+
 .prose :where(pre, code) {
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.9em;
