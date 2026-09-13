@@ -1,21 +1,51 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
-import { getArticles } from "../../lib/content";
+import { getArticles, getSeriesArticles } from "../../lib/content";
 
 const articles = await getArticles();
+const stigEssays = getSeriesArticles(articles, "stig-essays");
+const other = articles.filter((article) => article.data.series !== "stig-essays");
 ---
 
 <BaseLayout
   title="Writing"
-  description="External articles and on-site essays."
+  description="Ten plain-English essays on public DoD security checklists, plus other articles on STIG automation and local-first AI skills."
 >
   <p class="page-kicker">Essays</p>
   <h1>Writing</h1>
   <p class="lede">
-    Public articles on STIG automation and local-first AI skills.
+    Ten notes on public Department of Defense checklists and everyday computers,
+    plus other articles. The free STIG Checker tool lives at
+    <a href="https://stig.hsaxena.com" rel="noopener noreferrer">stig.hsaxena.com</a>.
   </p>
-  <div class="grid grid-2 section">
-    {articles.map((article) => <ArticleCard article={article} />)}
-  </div>
+
+  <section class="section" aria-labelledby="stig-essays-heading">
+    <div class="section-head">
+      <h2 id="stig-essays-heading">STIG essays</h2>
+    </div>
+    <p class="muted">
+      Himanshu Saxena. Plain English for a general reader. DISA publishes STIGs
+      for the Department of Defense; this series is independent and is not a DoD
+      or DISA publication.
+    </p>
+    <div class="grid grid-2">
+      {stigEssays.map((article) => <ArticleCard article={article} />)}
+    </div>
+  </section>
+
+  {
+    other.length > 0 && (
+      <section class="section" aria-labelledby="other-writing-heading">
+        <div class="section-head">
+          <h2 id="other-writing-heading">Other writing</h2>
+        </div>
+        <div class="grid grid-2">
+          {other.map((article) => (
+            <ArticleCard article={article} />
+          ))}
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>

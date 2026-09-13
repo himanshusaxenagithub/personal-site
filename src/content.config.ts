@@ -39,6 +39,16 @@ const projects = defineCollection({
     tags: z.array(z.string()).default([]),
     github: z.string().url(),
     demo: z.string().url().optional(),
+    /** Label for the demo/site link. Defaults to "Site". */
+    demoLabel: z.string().optional(),
+    links: z
+      .array(
+        z.object({
+          label: z.string(),
+          href: z.string().url(),
+        }),
+      )
+      .default([]),
     featured: z.boolean().default(false),
     order: z.number().int().default(0),
   }),
@@ -53,6 +63,8 @@ const articles = defineCollection({
     source: z.string().optional(),
     /** External publication URL. Omit for an on-site article at /writing/[slug]. */
     externalUrl: z.string().url().optional(),
+    series: z.string().optional(),
+    seriesOrder: z.number().int().optional(),
     tags: z.array(z.string()).default([]),
   }),
 });

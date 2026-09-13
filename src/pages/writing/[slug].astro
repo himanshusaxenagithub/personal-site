@@ -1,7 +1,12 @@
 ---
 import { render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { formatDate, getArticles } from "../../lib/content";
+import { site } from "../../config";
+import {
+  formatDate,
+  getArticles,
+  getSeriesArticles,
+} from "../../lib/content";
 
 export async function getStaticPaths() {
   const articles = await getArticles();
@@ -15,6 +20,13 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await render(article);
+const articles = await getArticles();
+const series = article.data.series
+  ? getSeriesArticles(articles, article.data.series)
+  : [];
+const index = series.findIndex((entry) => entry.id === article.id);
+const previous = index > 0 ? series[index - 1] : undefined;
+const next = index >= 0 && index < series.length - 1 ? series[index + 1] : undefined;
 ---
 
 <BaseLayout
@@ -27,8 +39,21 @@ const { Content } = await render(article);
     <p class="page-kicker">{article.data.source ?? "Writing"}</p>
     <h1>{article.data.title}</h1>
     <p class="meta">
+      {site.name}
+      {" · "}
       <time datetime={article.data.pubDate.toISOString()}>{formatDate(article.data.pubDate)}</time>
     </p>
     <Content />
+    {
+      series.length > 0 && (
+        <p class="links">
+          <a href="/writing/">All STIG essays</a>
+          {previous && (
+            <a href={`/writing/${previous.id}/`}>Previous: {previous.data.title}</a>
+          )}
+          {next && <a href={`/writing/${next.id}/`}>Next: {next.data.title}</a>}
+        </p>
+      )
+    }
   </article>
 </BaseLayout>

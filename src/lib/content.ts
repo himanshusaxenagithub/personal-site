@@ -28,7 +28,20 @@ export async function getPapers(): Promise<Paper[]> {
 
 export async function getArticles(): Promise<Article[]> {
   const articles = await getCollection("articles");
-  return articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return articles.sort((a, b) => {
+    const aSeries = a.data.seriesOrder;
+    const bSeries = b.data.seriesOrder;
+    if (aSeries != null && bSeries != null) return aSeries - bSeries;
+    if (aSeries != null) return -1;
+    if (bSeries != null) return 1;
+    return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+  });
+}
+
+export function getSeriesArticles(articles: Article[], series: string): Article[] {
+  return articles
+    .filter((article) => article.data.series === series)
+    .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
 }
 
 export function formatDate(date: Date): string {

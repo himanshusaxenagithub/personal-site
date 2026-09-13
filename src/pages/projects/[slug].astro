@@ -20,13 +20,20 @@ const { Content } = await render(project);
     <p class="page-kicker">Project</p>
     <h1>{project.data.title}</h1>
     <p class="links">
-      <a href={project.data.github} rel="noopener noreferrer">GitHub</a>
       {
         project.data.demo && (
           <a href={project.data.demo} rel="noopener noreferrer">
-            Live demo
+            {project.data.demoLabel ?? "Site"}
           </a>
         )
+      }
+      <a href={project.data.github} rel="noopener noreferrer">GitHub</a>
+      {
+        project.data.links.map((link) => (
+          <a href={link.href} rel="noopener noreferrer">
+            {link.label}
+          </a>
+        ))
       }
     </p>
     <ul class="tags">
