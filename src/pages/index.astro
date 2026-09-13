@@ -67,4 +67,13 @@ const [projects, posts, articles] = await Promise.all([
       {articles.slice(0, 2).map((article) => <ArticleCard article={article} />)}
     </div>
   </section>
+
+  <section class="section archive-link" aria-labelledby="earlier-papers-heading">
+    <h2 id="earlier-papers-heading">
+      <a href="/papers">Research papers (2014–2015)</a>
+    </h2>
+    <p class="muted">
+      Earlier B.Tech Production and Industrial Engineering publications.
+    </p>
+  </section>
 </BaseLayout>

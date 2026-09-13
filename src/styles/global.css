@@ -233,6 +233,19 @@ main {
   font-weight: 500;
 }
 
+.archive-link h2 {
+  margin-bottom: 0.35rem;
+}
+
+.archive-link h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.archive-link h2 a:hover {
+  color: var(--accent);
+}
+
 .grid {
   display: grid;
   gap: 1rem;

@@ -84,7 +84,7 @@ On the first run, Wrangler asks for a project name (this repo’s default is `pe
 
 | Path | Purpose |
 | --- | --- |
-| `/` | Bio, featured projects, recent posts, writing |
+| `/` | Bio, featured projects, recent posts, writing, link to earlier papers |
 | `/projects` | Project cards (GitHub + optional demo) |
 | `/papers` | Earlier B.Tech-era publications |
 | `/papers/[slug]` | Paper abstract and links |
