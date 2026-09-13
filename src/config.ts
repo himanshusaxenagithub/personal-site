@@ -9,7 +9,7 @@ export const site = {
   description:
     "Software Senior Engineer at Dell Technologies. Escalation engineer focused on enterprise private cloud, DISA STIG security compliance automation, and applied AI.",
   /** Canonical origin used for sitemap, RSS, Open Graph, and robots.txt. */
-  url: "https://personal-site-5tg.pages.dev",
+  url: "https://hsaxena.com",
   locale: "en_US",
   location: "Shrewsbury, Massachusetts",
   email: "1992.hsaxena@gmail.com",
