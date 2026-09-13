@@ -1,0 +1,20 @@
+---
+import { formatDate, type BlogPost } from "../lib/content";
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="card">
+  <p class="example-note">Example</p>
+  <h3>
+    <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+  </h3>
+  <p class="meta">
+    <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+  </p>
+  <p>{post.data.description}</p>
+</article>

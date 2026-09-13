@@ -1,0 +1,21 @@
+---
+import { site, socials, socialLabels } from "../config";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© {year} {site.name}</p>
+    <nav class="footer-links" aria-label="Footer">
+      {
+        Object.entries(socials).map(([key, href]) => (
+          <a href={href} rel="noopener noreferrer">
+            {socialLabels[key as keyof typeof socialLabels]}
+          </a>
+        ))
+      }
+      <a href="/rss.xml">RSS</a>
+    </nav>
+  </div>
+</footer>

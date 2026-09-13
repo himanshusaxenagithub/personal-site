@@ -1,0 +1,27 @@
+---
+import { articleHref, formatDate, isExternalArticle, type Article } from "../lib/content";
+
+interface Props {
+  article: Article;
+}
+
+const { article } = Astro.props;
+const href = articleHref(article);
+const external = isExternalArticle(article);
+---
+
+<article class="card">
+  <p class="example-note">Example</p>
+  <h3>
+    <a href={href} rel={external ? "noopener noreferrer" : undefined}>
+      {article.data.title}
+      {external ? " ↗" : ""}
+    </a>
+  </h3>
+  <p class="meta">
+    <time datetime={article.data.pubDate.toISOString()}>{formatDate(article.data.pubDate)}</time>
+    {article.data.source && <> · {article.data.source}</>}
+    {external && <> · External</>}
+  </p>
+  <p>{article.data.description}</p>
+</article>

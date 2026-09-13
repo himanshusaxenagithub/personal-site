@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { getArticles } from "../../lib/content";
+
+const articles = await getArticles();
+---
+
+<BaseLayout
+  title="Writing"
+  description="External articles and on-site essays."
+>
+  <p class="page-kicker">Essays</p>
+  <h1>Writing</h1>
+  <p class="lede">
+    Mix of outbound pieces and on-site articles. Set <code>externalUrl</code> in
+    <code>src/content/articles/</code> for an off-site link, or omit it to publish here.
+  </p>
+  <div class="grid grid-2 section">
+    {articles.map((article) => <ArticleCard article={article} />)}
+  </div>
+</BaseLayout>
