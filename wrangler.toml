@@ -1,0 +1,10 @@
+# Cloudflare Pages — static Astro output.
+# Dashboard Git builds still use: build command `npm run build`, output `dist`.
+# CLI: `npm run build && npx wrangler pages deploy`
+#
+# `pages_build_output_dir` is required for Wrangler to apply this file
+# when deploying a Pages project. No Worker / Functions entry is needed.
+
+name = "personal-site"
+compatibility_date = "2026-09-13"
+pages_build_output_dir = "./dist"

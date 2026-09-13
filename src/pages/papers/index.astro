@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PaperCard from "../../components/PaperCard.astro";
+import { getPapers } from "../../lib/content";
+
+const papers = await getPapers();
+---
+
+<BaseLayout
+  title="Papers"
+  description="Publications with PDF downloads and DOI, arXiv, or Scholar links."
+>
+  <p class="page-kicker">Research</p>
+  <h1>Papers</h1>
+  <p class="lede">
+    Sample publications. Edit <code>src/content/papers/</code> and drop PDFs in
+    <code>public/papers/</code>.
+  </p>
+  <div class="grid section">
+    {papers.map((paper) => <PaperCard paper={paper} headingLevel="h2" />)}
+  </div>
+</BaseLayout>

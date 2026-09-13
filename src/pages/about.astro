@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site, socials, socialLabels } from "../config";
+---
+
+<BaseLayout
+  title="About"
+  description={`About ${site.name}: background, research interests, and contact.`}
+>
+  <article class="prose">
+    <p class="page-kicker">About</p>
+    <h1>{site.name}</h1>
+    <p class="lede">{site.tagline}</p>
+    {site.about.map((paragraph) => <p>{paragraph}</p>)}
+    <h2>Elsewhere</h2>
+    <ul>
+      {
+        Object.entries(socials).map(([key, href]) => (
+          <li>
+            <a href={href} rel="noopener noreferrer">
+              {socialLabels[key as keyof typeof socialLabels]}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</BaseLayout>

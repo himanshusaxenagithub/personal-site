@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getProjects } from "../lib/content";
+
+const projects = await getProjects();
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected software projects and GitHub repositories."
+>
+  <p class="page-kicker">Work</p>
+  <h1>Projects</h1>
+  <p class="lede">
+    Cards below are placeholders. Replace files in <code>src/content/projects/</code> and
+    point GitHub or demo URLs at your real repositories.
+  </p>
+  <div class="grid grid-2 section">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</BaseLayout>

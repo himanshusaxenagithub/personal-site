@@ -1,0 +1,38 @@
+---
+import { formatAuthors, type Paper } from "../lib/content";
+
+interface Props {
+  paper: Paper;
+  headingLevel?: "h2" | "h3";
+}
+
+const { paper, headingLevel = "h3" } = Astro.props;
+const Heading = headingLevel;
+const links = [
+  paper.data.pdf ? { href: paper.data.pdf, label: "PDF" } : null,
+  paper.data.doi ? { href: paper.data.doi, label: "DOI" } : null,
+  paper.data.arxiv ? { href: paper.data.arxiv, label: "arXiv" } : null,
+  paper.data.scholar ? { href: paper.data.scholar, label: "Scholar" } : null,
+  paper.data.url ? { href: paper.data.url, label: "URL" } : null,
+].filter((link): link is { href: string; label: string } => link !== null);
+---
+
+<article class="card">
+  <p class="example-note">Example</p>
+  <Heading class="paper-title">
+    <a href={`/papers/${paper.id}/`}>{paper.data.title}</a>
+  </Heading>
+  <p class="meta">
+    {formatAuthors(paper.data.authors)} · {paper.data.year} · {paper.data.venue}
+  </p>
+  <p>{paper.data.abstract}</p>
+  <p class="links">
+    {
+      links.map((link) => (
+        <a href={link.href} rel="noopener noreferrer">
+          {link.label}
+        </a>
+      ))
+    }
+  </p>
+</article>

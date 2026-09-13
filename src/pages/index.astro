@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import PaperCard from "../components/PaperCard.astro";
+import PostCard from "../components/PostCard.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import { site, socials, socialLabels } from "../config";
+import {
+  getArticles,
+  getFeaturedPapers,
+  getFeaturedProjects,
+  getPublishedPosts,
+} from "../lib/content";
+
+const [projects, papers, posts, articles] = await Promise.all([
+  getFeaturedProjects(),
+  getFeaturedPapers(),
+  getPublishedPosts(),
+  getArticles(),
+]);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <p class="page-kicker">Hello</p>
+    <h1>{site.name}</h1>
+    <p class="lede">{site.tagline}</p>
+    <p>{site.bio}</p>
+    <p class="links">
+      {
+        Object.entries(socials).map(([key, href]) => (
+          <a href={href} rel="noopener noreferrer">
+            {socialLabels[key as keyof typeof socialLabels]}
+          </a>
+        ))
+      }
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="projects-heading">
+    <div class="section-head">
+      <h2 id="projects-heading">Featured projects</h2>
+      <a href="/projects">All projects</a>
+    </div>
+    <div class="grid grid-2">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="posts-heading">
+    <div class="section-head">
+      <h2 id="posts-heading">Recent posts</h2>
+      <a href="/blog">Blog</a>
+    </div>
+    <div class="grid grid-2">
+      {posts.slice(0, 2).map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="papers-heading">
+    <div class="section-head">
+      <h2 id="papers-heading">Featured papers</h2>
+      <a href="/papers">All papers</a>
+    </div>
+    <div class="grid">
+      {papers.map((paper) => <PaperCard paper={paper} />)}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="writing-heading">
+    <div class="section-head">
+      <h2 id="writing-heading">Writing</h2>
+      <a href="/writing">All writing</a>
+    </div>
+    <div class="grid grid-2">
+      {articles.slice(0, 2).map((article) => <ArticleCard article={article} />)}
+    </div>
+  </section>
+</BaseLayout>
