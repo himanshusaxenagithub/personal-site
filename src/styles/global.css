@@ -392,12 +392,18 @@ main {
     font-weight: 500;
   }
 
+  .brand {
+    order: 1;
+  }
+
   .header-tools {
+    order: 2;
     margin-left: auto;
   }
 
   .nav-panel {
     display: none;
+    order: 3;
     flex: 1 1 100%;
     justify-content: flex-start;
     margin-right: 0;
