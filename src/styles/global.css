@@ -255,6 +255,10 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
 }
 
+.grid-2 > .card {
+  max-width: 28rem;
+}
+
 .card {
   background: var(--bg-elevated);
   border: 1px solid var(--rule);
