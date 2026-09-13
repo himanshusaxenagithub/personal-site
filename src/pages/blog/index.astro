@@ -9,11 +9,24 @@ const posts = await getPublishedPosts();
 <BaseLayout title="Blog" description="Notes and longer-form writing.">
   <p class="page-kicker">Journal</p>
   <h1>Blog</h1>
-  <p class="lede">
-    Markdown posts from <code>src/content/blog/</code>. The feed lives at
-    <a href="/rss.xml">/rss.xml</a>.
-  </p>
-  <div class="grid grid-2 section">
-    {posts.map((post) => <PostCard post={post} />)}
-  </div>
+  {
+    posts.length > 0 ? (
+      <>
+        <p class="lede">
+          Notes on private cloud, security automation, and applied AI. The feed is
+          at <a href="/rss.xml">/rss.xml</a>.
+        </p>
+        <div class="grid grid-2 section">
+          {posts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </>
+    ) : (
+      <p class="lede">
+        No posts yet. Longer pieces live under <a href="/writing">Writing</a>. The
+        RSS feed is <a href="/rss.xml">/rss.xml</a>.
+      </p>
+    )
+  }
 </BaseLayout>

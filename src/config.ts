@@ -3,27 +3,27 @@
  * Update name, bio, socials, and nav here — content collections live in src/content/.
  */
 export const site = {
-  name: "H S",
-  tagline: "Research, software, and writing.",
-  title: "H S — Research, software, and writing",
+  name: "Himanshu Saxena",
+  tagline: "Software Senior Engineer at Dell Technologies",
+  title: "Himanshu Saxena — Private cloud, STIG automation, and applied AI",
   description:
-    "Personal site for projects, publications, and notes. Replace this description in src/config.ts.",
+    "Software Senior Engineer at Dell Technologies. Escalation engineer focused on enterprise private cloud, DISA STIG security compliance automation, and applied AI.",
   /** Canonical origin used for sitemap, RSS, Open Graph, and robots.txt. */
   url: "https://personal-site-5tg.pages.dev",
   locale: "en_US",
-  email: "hello@example.com",
-  bio: "I work at the intersection of research and software. This site is a placeholder portfolio — swap in your own projects, papers, and posts.",
+  location: "Shrewsbury, Massachusetts",
+  email: "1992.hsaxena@gmail.com",
+  bio: "Escalation engineer focused on enterprise private cloud, DISA STIG security compliance automation, and applied AI. Author and maintainer of open-source tooling that turns DISA STIGs into risk-ranked, actionable remediation.",
   about: [
-    "Hello — I’m H S. Use this page for a longer bio: education, current work, research interests, and how to reach you.",
-    "Everything on this site is example content. Edit src/config.ts for identity and socials, then replace the Markdown files under src/content/.",
-    "If you publish papers, keep PDFs in public/papers/ and link them from the papers collection. Blog posts are Markdown (or MDX) with an RSS feed at /rss.xml.",
+    "I am a Software Senior Engineer at Dell Technologies, where I work as an escalation engineer on enterprise private cloud. My day-to-day focus is DISA STIG security compliance automation and the customer problems that show up when hardening is hard to operationalize.",
+    "I have more than seven years of post-graduate experience. At Dell I authored STIG enforcement for VxRail Manager and own STIG customer escalations and testing across VxRail and Dell Private Cloud. Independently, I build vendor-neutral, MIT-licensed STIG tooling that converts DISA checklists into structured, severity-ranked remediation.",
+    "I hold an M.S. in Operations Research from Northeastern University (2019) and a B.Tech. in Production and Industrial Engineering from Delhi Technological University (2015).",
   ],
 } as const;
 
 export const socials = {
-  github: "https://github.com/your-username",
-  scholar: "https://scholar.google.com/citations?user=PLACEHOLDER",
-  linkedin: "https://www.linkedin.com/in/your-profile",
+  github: "https://github.com/himanshusaxenagithub",
+  linkedin: "https://www.linkedin.com/in/himanshusaxena92",
   email: `mailto:${site.email}`,
 } as const;
 
@@ -31,7 +31,6 @@ export type SocialKey = keyof typeof socials;
 
 export const socialLabels: Record<SocialKey, string> = {
   github: "GitHub",
-  scholar: "Google Scholar",
   linkedin: "LinkedIn",
   email: "Email",
 };

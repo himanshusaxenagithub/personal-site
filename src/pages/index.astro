@@ -47,15 +47,19 @@ const [projects, papers, posts, articles] = await Promise.all([
     </div>
   </section>
 
-  <section class="section" aria-labelledby="posts-heading">
-    <div class="section-head">
-      <h2 id="posts-heading">Recent posts</h2>
-      <a href="/blog">Blog</a>
-    </div>
-    <div class="grid grid-2">
-      {posts.slice(0, 2).map((post) => <PostCard post={post} />)}
-    </div>
-  </section>
+  {
+    posts.length > 0 && (
+      <section class="section" aria-labelledby="posts-heading">
+        <div class="section-head">
+          <h2 id="posts-heading">Recent posts</h2>
+          <a href="/blog">Blog</a>
+        </div>
+        <div class="grid grid-2">
+          {posts.slice(0, 2).map((post) => <PostCard post={post} />)}
+        </div>
+      </section>
+    )
+  }
 
   <section class="section" aria-labelledby="papers-heading">
     <div class="section-head">

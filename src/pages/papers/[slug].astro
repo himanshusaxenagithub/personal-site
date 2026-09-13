@@ -24,19 +24,20 @@ const links = [
 
 <BaseLayout title={paper.data.title} description={paper.data.abstract}>
   <article class="prose">
-    <p class="example-note">Example paper</p>
     <p class="page-kicker">{paper.data.venue} · {paper.data.year}</p>
     <h1>{paper.data.title}</h1>
     <p class="meta">{formatAuthors(paper.data.authors)}</p>
-    <p class="links">
-      {
-        links.map((link) => (
-          <a href={link.href} rel="noopener noreferrer">
-            {link.label}
-          </a>
-        ))
-      }
-    </p>
+    {
+      links.length > 0 && (
+        <p class="links">
+          {links.map((link) => (
+            <a href={link.href} rel="noopener noreferrer">
+              {link.label}
+            </a>
+          ))}
+        </p>
+      )
+    }
     <h2>Abstract</h2>
     <p>{paper.data.abstract}</p>
     <Content />

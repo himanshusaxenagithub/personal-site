@@ -1,8 +1,8 @@
 # Personal site
 
-Static [Astro](https://astro.build) portfolio for **H S**: projects, papers, blog, and writing. Built as HTML/CSS in `dist/` and meant for [Cloudflare Pages](https://developers.cloudflare.com/pages/).
+Static [Astro](https://astro.build) portfolio for **Himanshu Saxena**: projects, papers, blog, and writing. Built as HTML/CSS in `dist/` and meant for [Cloudflare Pages](https://developers.cloudflare.com/pages/).
 
-Sample projects, papers, and posts are **placeholders**. Replace them before you share the site.
+Live site: [https://personal-site-5tg.pages.dev](https://personal-site-5tg.pages.dev).
 
 ## Edit content
 
@@ -65,7 +65,7 @@ Build settings (either path):
    - Environment variable: `NODE_VERSION` = `22`
 4. Deploy. Later pushes to the production branch rebuild automatically. Preview deployments are created for other branches and pull requests.
 
-After the first deploy, set `site.url` in `src/config.ts` to your `*.pages.dev` or custom domain and redeploy so sitemap, robots, RSS, and Open Graph URLs are canonical.
+`site.url` in `src/config.ts` is set to the live Pages origin. Update it if the domain changes, then redeploy so sitemap, robots, RSS, and Open Graph URLs stay canonical.
 
 ### 2. CLI: `wrangler pages deploy`
 
