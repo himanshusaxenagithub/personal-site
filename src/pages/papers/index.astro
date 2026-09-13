@@ -8,13 +8,12 @@ const papers = await getPapers();
 
 <BaseLayout
   title="Papers"
-  description="Publications with PDF downloads and DOI, arXiv, or Scholar links."
+  description="Peer-reviewed and conference publications."
 >
   <p class="page-kicker">Research</p>
   <h1>Papers</h1>
   <p class="lede">
-    Sample publications. Edit <code>src/content/papers/</code> and drop PDFs in
-    <code>public/papers/</code>.
+    Earlier publications on bearing condition monitoring and energy harvesting.
   </p>
   <div class="grid section">
     {papers.map((paper) => <PaperCard paper={paper} headingLevel="h2" />)}

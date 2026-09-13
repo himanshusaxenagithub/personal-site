@@ -13,8 +13,7 @@ const articles = await getArticles();
   <p class="page-kicker">Essays</p>
   <h1>Writing</h1>
   <p class="lede">
-    Mix of outbound pieces and on-site articles. Set <code>externalUrl</code> in
-    <code>src/content/articles/</code> for an off-site link, or omit it to publish here.
+    Public articles on STIG automation and local-first AI skills.
   </p>
   <div class="grid grid-2 section">
     {articles.map((article) => <ArticleCard article={article} />)}

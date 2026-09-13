@@ -18,7 +18,6 @@ const links = [
 ---
 
 <article class="card">
-  <p class="example-note">Example</p>
   <Heading class="paper-title">
     <a href={`/papers/${paper.id}/`}>{paper.data.title}</a>
   </Heading>
@@ -26,13 +25,15 @@ const links = [
     {formatAuthors(paper.data.authors)} · {paper.data.year} · {paper.data.venue}
   </p>
   <p>{paper.data.abstract}</p>
-  <p class="links">
-    {
-      links.map((link) => (
-        <a href={link.href} rel="noopener noreferrer">
-          {link.label}
-        </a>
-      ))
-    }
-  </p>
+  {
+    links.length > 0 && (
+      <p class="links">
+        {links.map((link) => (
+          <a href={link.href} rel="noopener noreferrer">
+            {link.label}
+          </a>
+        ))}
+      </p>
+    )
+  }
 </article>
