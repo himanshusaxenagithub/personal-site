@@ -9,7 +9,7 @@ export const site = {
   description:
     "Personal site for projects, publications, and notes. Replace this description in src/config.ts.",
   /** Canonical origin used for sitemap, RSS, Open Graph, and robots.txt. */
-  url: "https://example.com",
+  url: "https://personal-site-5tg.pages.dev",
   locale: "en_US",
   email: "hello@example.com",
   bio: "I work at the intersection of research and software. This site is a placeholder portfolio — swap in your own projects, papers, and posts.",
